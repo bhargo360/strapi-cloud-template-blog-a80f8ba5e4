@@ -1,0 +1,8 @@
+.tmp/
+.cache/
+.DS_Store
+build/
+node_modules/
+public/uploads/
+.env
+.git/

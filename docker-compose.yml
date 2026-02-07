@@ -1,0 +1,25 @@
+services:
+  strapi:
+    container_name: strapi
+    build: .
+    image: strapi:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: 4177
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/app/package.json
+      - ./data:/opt/app/data
+      - ./public/uploads:/opt/app/public/uploads
+    ports:
+      - '4177:4177'
+    networks:
+      - strapi
+
+networks:
+  strapi:
+    name: strapi
+    driver: bridge
